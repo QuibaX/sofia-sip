@@ -881,9 +881,10 @@ int nua_client_request_sendmsg(nua_client_request_t *cr)
       sip_add_dup(msg, sip, (sip_header_t *)ds->ds_ltarget);
 
 	/*
-	  FS-4102 
+	  FS-4102
 	  It was decided to comment out this code because it does not appear to make sense
 	  Dec 22, 2016
+    */
 
     if (nua_registration_add_contact_to_request(nh, msg, sip,
 						cr->cr_contactize &&
@@ -893,7 +894,6 @@ int nua_client_request_sendmsg(nua_client_request_t *cr)
       msg_destroy(msg);
       return -1;
     }
-	*/
 
   }
 
