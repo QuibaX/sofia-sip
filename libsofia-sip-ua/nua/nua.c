@@ -227,13 +227,8 @@ void nua_destroy(nua_t *nua)
 
     nua->nua_callback = NULL;
 
-    su_task_deinit(nua->nua_server);
-    su_task_deinit(nua->nua_client);
-
     su_clone_wait(nua->nua_api_root, nua->nua_clone);
-#if HAVE_SMIME		/* Start NRC Boston */
-    sm_destroy(nua->sm);
-#endif			/* End NRC Boston */
+
 	nua_unref(nua);
   }
 }
